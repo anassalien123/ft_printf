@@ -1,0 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_puthexa_upper.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ancheab <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/20 02:40:08 by ancheab           #+#    #+#             */
+/*   Updated: 2025/11/20 02:40:49 by ancheab          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+size_t	ft_puthexa_upper(const unsigned int n)
+{
+	if (n / 16)
+		return (ft_puthexa_upper(n / 16) + ft_puthexa_upper(n % 16));
+	else if (!(n / 10))
+		ft_putchar(n + '0');
+	else
+		ft_putchar((char) n - 10 + 'A');
+	return (1);
+}
